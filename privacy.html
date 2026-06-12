@@ -1,160 +1,135 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>ParkBell Privacy Policy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <main>
-      <h1>ParkBell Privacy Policy</h1>
-      <p>Last updated: June 12, 2026</p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ParkBell Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --accent: #f59e0b;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --background: #f8fafc;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+    }
 
-      <h2>Overview</h2>
-      <p>
-        ParkBell helps remind you to pay for parking after your phone disconnects
-        from your selected car Bluetooth device.
-      </p>
-      <p>
-        ParkBell does not provide user accounts, advertising, analytics, or
-        social features.
-      </p>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #f9fafb;
+        --muted: #d1d5db;
+        --background: #111827;
+        --surface: #1f2937;
+        --border: #374151;
+      }
+    }
 
-      <h2>Data Stored On Your Device</h2>
-      <p>ParkBell stores the following data locally on your Android device:</p>
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 20px 56px;
+    }
+
+    article {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgb(15 23 42 / 0.08);
+    }
+
+    h1,
+    h2 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 1.25rem;
+    }
+
+    p,
+    ul {
+      margin: 0 0 16px;
+    }
+
+    ul {
+      padding-left: 1.3rem;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .updated {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: June 13, 2026</p>
+
+      <p>ParkBell is a simple local reminder app. It helps you remember to pay for parking when your selected car Bluetooth device disconnects.</p>
+
+      <h2>Data Stored On The Device</h2>
+      <p>The app stores the following settings locally on your Android device:</p>
       <ul>
-        <li>the selected car Bluetooth device name and Bluetooth address;</li>
-        <li>the selected parking app name and package name;</li>
-        <li>app settings such as language, notification delay, notification status, and GPS filter settings;</li>
-        <li>optional parking exclusions, such as addresses or postal codes after they are resolved to coordinates;</li>
-        <li>local diagnostic messages shown inside the app.</li>
+        <li>the name and Bluetooth address of the selected car device;</li>
+        <li>the name and package name of the selected parking app;</li>
+        <li>app preferences such as language, notification delay, and whether the optional paid-parking GPS filter is enabled;</li>
+        <li>optional parking exclusion addresses or postal codes after they are resolved to coordinates, together with the exclusion radius.</li>
       </ul>
-      <p>
-        This data is used to detect the selected car Bluetooth disconnection,
-        show parking reminders, open the selected parking app, and apply optional
-        paid-parking GPS filtering.
-      </p>
+      <p>These settings are used only to detect the selected car Bluetooth disconnection and to open the selected parking app from a notification.</p>
 
-      <h2>Location</h2>
-      <p>
-        ParkBell requests location permission only if you enable the optional
-        GPS paid-parking filter.
-      </p>
-      <p>
-        If the optional GPS paid-parking filter is enabled, ParkBell may briefly
-        request a fresh location after the selected car Bluetooth device
-        disconnects. This is used to decide whether the car is likely near a
-        paid-parking zone and whether a reminder should be shown.
-      </p>
-      <p>
-        If Android cannot provide a fresh location quickly, ParkBell may use a
-        recent last known location. If the location check cannot be completed,
-        is stale, inaccurate, unavailable, or outside supported parking data,
-        ParkBell still shows the parking reminder.
-      </p>
-      <p>
-        ParkBell does not continuously track your location. ParkBell does not
-        store your GPS history. Exact GPS coordinates are processed locally on
-        your device and are not sent to ParkBell servers.
-      </p>
-
-      <h2>Background Location</h2>
-      <p>
-        On Android, if you want the optional GPS paid-parking filter to work
-        immediately after Bluetooth disconnection while the app is in the
-        background, Android may ask you to allow location access "all the time".
-      </p>
-      <p>
-        Background location is used only after the selected car Bluetooth device
-        disconnects, for one short GPS check. Without background location,
-        Bluetooth-based reminders still work, but the optional GPS paid-parking
-        filter may be skipped.
-      </p>
-
-      <h2>Parking Tile Data</h2>
-      <p>
-        ParkBell downloads static paid-parking tile files from Supabase Storage.
-        These files contain public parking-zone geometry.
-      </p>
-      <p>
-        Your exact GPS coordinates are not sent to Supabase. However, the tile
-        file path requested by the app is derived from a coarse map tile around
-        your approximate location. Supabase and network providers may therefore
-        see ordinary request metadata such as your IP address and the requested
-        coarse tile area.
-      </p>
-      <p>
-        Parking tile files may be cached locally on your device to reduce network
-        requests. Cached tile files contain public parking-zone data, not your
-        location history.
-      </p>
-
-      <h2>Address And Postal-Code Lookup</h2>
-      <p>
-        If you add a parking exclusion by address or postal code, ParkBell uses
-        Android's system geocoder to resolve that text into coordinates.
-      </p>
-      <p>
-        Depending on your device, Android's geocoder may send the address or
-        postal-code text to Google or another system geocoding provider. ParkBell
-        does not send these addresses or postal codes to its own server. The
-        resolved exclusion is stored locally on your device.
-      </p>
-
-      <h2>Notifications</h2>
-      <p>
-        ParkBell uses notification permission to show local parking reminders
-        after the selected car Bluetooth device disconnects. Notifications may
-        include an action to open your selected parking app and an action to
-        snooze the reminder.
-      </p>
-
-      <h2>Bluetooth</h2>
-      <p>
-        ParkBell uses Bluetooth permission to read paired Bluetooth devices and
-        detect when the selected car Bluetooth device disconnects. Bluetooth data
-        is used locally on your device for reminder logic.
-      </p>
-
-      <h2>Parking App Shortcut</h2>
-      <p>
-        ParkBell lets you choose a supported parking app so the reminder can
-        include a shortcut to open it. ParkBell uses a limited allowlist of known
-        parking apps and does not request access to all installed apps.
-      </p>
-
-      <h2>Data Sharing</h2>
-      <p>
-        ParkBell does not sell your data. ParkBell does not use advertising SDKs
-        or analytics SDKs.
-      </p>
-      <p>
-        Optional third-party or system processing may occur only for:
-      </p>
+      <h2>Data Collection, Processing, And Sharing</h2>
+      <p>ParkBell does not operate an account system, analytics service, advertising SDK, or app-owned server that collects your personal data.</p>
+      <p>Some optional features still involve third-party or system processing outside the app developer's control:</p>
       <ul>
-        <li>Supabase Storage tile downloads for public paid-parking data;</li>
-        <li>Android system geocoder lookups for addresses or postal codes;</li>
-        <li>standard network metadata handled by your device, network provider, and hosting providers.</li>
+        <li>Supabase Storage and network providers may receive ordinary request metadata such as your IP address and the coarse tile file path requested. The tile identifier is derived from your current approximate map area, so it can reveal a coarse area, but not your exact GPS coordinate.</li>
+        <li>Android's system geocoder may send a typed address or postal code to Google or another system geocoding provider, depending on your device.</li>
       </ul>
+      <p>If the optional paid-parking GPS filter is enabled, the app briefly asks Android for a fresh location after the selected car Bluetooth device disconnects. If Android cannot provide a fresh location quickly, the app may use a recent last known location. The exact GPS coordinate is not sent to the app developer's server. The app avoids sending exact latitude and longitude to Supabase or RDW, but it does request static tile files whose paths are derived from a coarse map tile around your location.</p>
+      <p>For this optional check, the app converts the last known location into a coarse map tile identifier and downloads static Dutch paid-parking tile files from Supabase Storage. The downloaded tile can cover a wider area than your exact parking location. The app then checks whether the exact point is inside or near a paid-parking polygon locally on the device.</p>
+      <p>Location is not used for advertising, analytics, user profiling, or sale.</p>
+      <p>The app may cache downloaded parking tile files on the device to reduce network requests. These cached files contain public parking-zone geometry, not your location history.</p>
+      <p>If you add a parking exclusion by address or postal code, the app uses Android's system geocoder while you are editing settings to resolve that text into coordinates. Depending on your device, this geocoding request may be handled by Google or another system geocoding provider. ParkBell does not send these addresses to its own server and stores the resolved exclusion locally on your device.</p>
+      <p>The app also shows this geocoder notice in the settings screen before you add an address or postal-code exclusion.</p>
+
+      <h2>Permissions</h2>
+      <p>The app requests Bluetooth permission to read paired Bluetooth devices and detect when the selected car device disconnects.</p>
+      <p>The app requests notification permission to show a local parking reminder notification.</p>
+      <p>The app requests location permission only if you enable the optional paid-parking GPS filter.</p>
+      <p>If you want the GPS filter to run immediately after a Bluetooth disconnection while the app is in the background, Android may ask you to allow location access "all the time". This background location access is used only after the selected car Bluetooth device disconnects, to briefly request a fresh location for the local paid-parking tile check and decide whether to show the reminder. If you do not grant background location access, ParkBell can still show Bluetooth-based reminders, but the optional GPS paid-parking filter may be skipped. The app does not continuously track your location and does not store your GPS history.</p>
+      <p>If you plan to distribute the app through Google Play with background location enabled, Google Play may require an additional prominent disclosure, Data Safety declaration, and background-location approval review.</p>
+      <p>The app may open Android battery settings so you can allow reliable background behavior. The app cannot change these settings without your action.</p>
+
+      <h2>Remote Data Security</h2>
+      <p>Parking tile data is published as static, public, read-only files. The Android app does not include a Supabase service-role key and does not need permission to insert, update, or delete remote data.</p>
+      <p>Supabase or network providers may still receive ordinary request metadata such as your IP address and the coarse tile file path requested. That coarse tile path is derived from the map tile around the device's last known location.</p>
 
       <h2>Data Deletion</h2>
-      <p>
-        You can delete all locally stored ParkBell data by clearing the app data
-        in Android system settings or by uninstalling the app.
-      </p>
-
-      <h2>Security</h2>
-      <p>
-        ParkBell stores app settings locally on your device. The Android app does
-        not include a Supabase service-role key and does not have permission to
-        insert, update, or delete remote parking tile data.
-      </p>
+      <p>You can delete all locally stored app data by clearing the app data in Android system settings or by uninstalling the app.</p>
 
       <h2>Contact</h2>
-      <p>
-        For questions about this privacy policy, contact:
-        <a href="mailto:parkbellapp@gmail.com">parkbellapp@gmail.com</a>
-      </p>
-    </main>
-  </body>
+      <p>For questions about this privacy policy, contact the app developer at <a href="mailto:parkbellapp@gmail.com">parkbellapp@gmail.com</a>.</p>
+    </article>
+  </main>
+</body>
 </html>
