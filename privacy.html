@@ -102,13 +102,13 @@
       <p>ParkBell does not operate an account system, analytics service, advertising SDK, or app-owned server that collects your personal data.</p>
       <p>Some optional features still involve third-party or system processing outside the app developer's control:</p>
       <ul>
-        <li>Supabase Storage and network providers may receive ordinary request metadata such as your IP address and the coarse tile file path requested. The tile identifier is derived from your current approximate map area, so it can reveal a coarse area, but not your exact GPS coordinate.</li>
+        <li>Supabase Storage and network providers may receive ordinary request metadata such as your IP address when the app checks for parking data updates and downloads country-level parking data packs.</li>
         <li>Android's system geocoder may send a typed address or postal code to Google or another system geocoding provider, depending on your device.</li>
       </ul>
-      <p>If the optional paid-parking GPS filter is enabled, the app briefly asks Android for a fresh location after the selected car Bluetooth device disconnects. If Android cannot provide a fresh location quickly, the app may use a recent last known location. The exact GPS coordinate is not sent to the app developer's server. The app avoids sending exact latitude and longitude to Supabase or RDW, but it does request static tile files whose paths are derived from a coarse map tile around your location.</p>
-      <p>For this optional check, the app converts the last known location into a coarse map tile identifier and downloads static Dutch paid-parking tile files from Supabase Storage. The downloaded tile can cover a wider area than your exact parking location. The app then checks whether the exact point is inside or near a paid-parking polygon locally on the device.</p>
+      <p>If the optional paid-parking GPS filter is enabled, the app briefly asks Android for a fresh location after the selected car Bluetooth device disconnects. If Android cannot provide a fresh location quickly, the app may use a recent last known location. The exact GPS coordinate is not sent to the app developer's server. The app checks paid-parking data locally on the device.</p>
+      <p>The app may periodically download country-level paid-parking data packs from Supabase Storage and store them locally on the device. These packs contain public parking-zone geometry for supported countries. The app then checks whether the exact point is inside or near a paid-parking polygon locally on the device. Supabase receives requests for the manifest and country data packs, not your exact GPS coordinate.</p>
       <p>Location is not used for advertising, analytics, user profiling, or sale.</p>
-      <p>The app may cache downloaded parking tile files on the device to reduce network requests. These cached files contain public parking-zone geometry, not your location history.</p>
+      <p>The app stores downloaded parking data packs on the device to reduce network requests. These packs contain public parking-zone geometry, not your location history.</p>
       <p>If you add a parking exclusion by address or postal code, the app uses Android's system geocoder while you are editing settings to resolve that text into coordinates. Depending on your device, this geocoding request may be handled by Google or another system geocoding provider. ParkBell does not send these addresses to its own server and stores the resolved exclusion locally on your device.</p>
       <p>The app also shows this geocoder notice in the settings screen before you add an address or postal-code exclusion.</p>
 
@@ -122,7 +122,7 @@
 
       <h2>Remote Data Security</h2>
       <p>Parking tile data is published as static, public, read-only files. The Android app does not include a Supabase service-role key and does not need permission to insert, update, or delete remote data.</p>
-      <p>Supabase or network providers may still receive ordinary request metadata such as your IP address and the coarse tile file path requested. That coarse tile path is derived from the map tile around the device's last known location.</p>
+      <p>Supabase or network providers may still receive ordinary request metadata such as your IP address when the app checks for updated parking data and downloads country-level parking data packs.</p>
 
       <h2>Data Deletion</h2>
       <p>You can delete all locally stored app data by clearing the app data in Android system settings or by uninstalling the app.</p>
