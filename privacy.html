@@ -21,7 +21,7 @@
 <main>
   <div class="card">
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: August 14, 2026</p>
+    <p class="meta">Last updated: August 15, 2026</p>
     <p class="meta">Public URL: https://parkbellapp.github.io/privacy.html</p>
     <p>ParkBell is a simple local reminder app. It helps you remember to pay for parking when your selected car Bluetooth device disconnects, or optionally when an Android Auto session ends.</p>
     <h2>Data Stored On The Device</h2>
@@ -42,7 +42,7 @@
     <ul>
       <li>Supabase Storage and network providers may receive ordinary request metadata such as your IP address if the app checks for parking data updates and downloads updated country-level parking data packs.</li>
       <li>Android's system geocoder may send a typed or pasted address to Google or another system geocoding provider, depending on your device.</li>
-      <li>If you use <strong>Report a problem</strong> in About, or request a missing parking app from the parking-app picker, your email app may send a message you compose (and optionally a redacted diagnostic log attachment for problem reports) to ParkBell support. That email is under your control; ParkBell does not send it in the background.</li>
+      <li>If you use <strong>Report a problem</strong> in About, your email app may send a message you compose (and optionally a redacted diagnostic log attachment) to <a href="mailto:parkbell_support@googlegroups.com">parkbell_support@googlegroups.com</a>. If you request a missing parking app from the parking-app picker, your email app may send that request to <a href="mailto:parking_apps_request@googlegroups.com">parking_apps_request@googlegroups.com</a>. Those emails are under your control; ParkBell does not send them in the background.</li>
     </ul>
     <p>If the optional paid-parking GPS filter is enabled, after the selected car Bluetooth device disconnects — or after an Android Auto session ends, if that monitoring is on — the app briefly asks Android for a location to decide whether paid parking is likely nearby. If Android cannot provide a fresh location quickly, the app may use a recent last known location. Exact GPS coordinates are not sent to the app developer&#x27;s server. The app checks paid-parking data locally on the device.</p>
     <p>Optionally (on by default when the GPS filter is on; can be turned off in Settings), while a selected car Bluetooth device remains connected ParkBell may occasionally request a low-frequency balanced location refresh — more often while the phone is charging, and on battery only when charge is above 50%. These refreshes are meant to make the disconnect check fresher. They are not continuous trip tracking, do not store a route history, and do not send exact coordinates to ParkBell servers. Turning the option off means location is requested for the GPS filter at disconnect (including a short head-start then), not periodically while driving.</p>
@@ -62,7 +62,6 @@
       <li>if you leave “Faster location while driving” enabled, occasionally refresh location while that car remains connected (subject to charging / battery rules above).</li>
     </ul>
     <p>You can disable those while-driving refreshes in Settings. If you do not grant background location access, ParkBell can still show Bluetooth- and Android Auto-based reminders, but the optional GPS paid-parking filter may be skipped. The app does not continuously track your location and does not store your GPS history or trip log.</p>
-    <p>If you plan to distribute the app through Google Play with background location enabled, Google Play may require an additional prominent disclosure, Data Safety declaration, and background-location approval review.</p>
     <p>The app may open Android battery settings so you can allow reliable background behavior. The app cannot change these settings without your action.</p>
     <h2>Remote Data Security</h2>
     <p>Parking data updates are published as static, public, read-only files. Remote update manifests are signature-verified before the app stores updated parking data. The Android app does not include a Supabase service-role key and does not need permission to insert, update, or delete remote data.</p>
@@ -72,7 +71,8 @@
     <h2>Disclaimer</h2>
     <p>ParkBell is only a local reminder helper. It does not pay for parking, stop a parking session, or replace checking local parking rules. Reminders and the optional GPS filter can be late, missing, or wrong — for example because of Bluetooth or Android Auto quirks, battery limits, outdated maps, or GPS error. You remain responsible for paying parking and any fines. Use the app at your own risk.</p>
     <h2>Contact</h2>
-    <p>For questions about this privacy policy, contact the app developer at <a href="mailto:parkbellapp@gmail.com">parkbellapp@gmail.com</a>.</p>
+    <p>For questions about this privacy policy or the app, email <a href="mailto:parkbell_support@googlegroups.com">parkbell_support@googlegroups.com</a>.</p>
+    <p>To request a missing parking app from the in-app picker, email <a href="mailto:parking_apps_request@googlegroups.com">parking_apps_request@googlegroups.com</a>.</p>
   </div>
 </main>
 </body>
